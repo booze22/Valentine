@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        img {
+            width: 200px;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine? ❤️</h1>
+    <img id="cat" src="https://i.imgur.com/0Z8sKcs.png" alt="Happy Cat">
+    <div class="buttons">
+        <button onclick="sayYes()">Yes</button>
+        <button id="noBtn" onclick="makeSad()">No</button>
+    </div>
+
+    <script>
+        let sadnessLevel = 0;
+        const sadImages = [
+            "https://i.imgur.com/0Z8sKcs.png", // Happy cat
+            "https://i.imgur.com/J7m9fyL.png", // Slightly sad cat
+            "https://i.imgur.com/4b9KZwB.png", // Sad cat
+            "https://i.imgur.com/B6HxK1U.png"  // Super sad cat
+        ];
+
+        function makeSad() {
+            if (sadnessLevel < sadImages.length - 1) {
+                sadnessLevel++;
+                document.getElementById("cat").src = sadImages[sadnessLevel];
+            } else {
+                document.getElementById("noBtn").style.display = "none"; // Remove No button
+            }
+        }
+
+        function sayYes() {
+            alert("Yay! ❤️ See you on Valentine's Day!");
+            document.getElementById("cat").src = "https://i.imgur.com/wOmoeGv.png"; // Happy Blush Cat
+        }
+    </script>
+</body>
+</html>
